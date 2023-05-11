@@ -34,15 +34,17 @@ a curated basket of diversified staking positions underwriting risks in the DeFi
 
 **Blockchain Assets (StartUp France)**
 ---
-Crypto prices prediction service with AI prediction models.
-Infrastructure proposal to integrate NFT authentication access into the platform services.
+Crypto prices prediction service with AI models.
+POC Infrastructure design to mint a utility NFT token for the use of the service.
 
-[Architecture design link](https://ipfs.io/ipfs/QmWtTvqR6dzvPa82V5Gyn4T2n7jXXD67UKkZvd1EJoup2a?filename=arch.png)
 
 Main components:
-  - Company's website for user onboarding 
-  - Moralis service for DB for internal management
   - Chainstack for cross-chain synchronization between Ethereum, Polygon, Arbitrum and Binance BSC
+  - Company's website for user onboarding 
+  - Moralis private node service
+
+  [Architecture design link](https://ipfs.io/ipfs/QmWtTvqR6dzvPa82V5Gyn4T2n7jXXD67UKkZvd1EJoup2a?filename=arch.png)
+
   - ERC1155 management contract for NFT and ERC20 utility & rewards token
   - IPFS for NFT metadata management
   - Heroku environment to consume AI prediction models
