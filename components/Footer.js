@@ -42,7 +42,7 @@ const moonIcon = (
       strokeLinejoin="round"
       strokeWidth="2"
       className="stroke-current text-gray-400 dark:text-white"
-      d="M19.5 10.79A9 9 0 119.71 1a7 7 0 009.79 9.79v0z"
+      d="M19.5 10.79A9 9 0 119.11 1a7 7 0 009.79 9.79v0z"
     ></path>
   </svg>
 );
