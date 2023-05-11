@@ -17,6 +17,26 @@ export default function Index({ posts, globalData }) {
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
           {globalData.blogTitle}
         </h1>
+
+        <p style={{textAlign:"center", marginTop:"-1em"}}> 
+              <a href={`https://github.com/danielles0xG`}  target="_blank"  rel="noreferrer" style={{padding:"5px"}}>
+                github
+              </a> 
+          ||
+              <a href={`https://www.linkedin.com/in/danielifg`}  target="_blank"  rel="noreferrer" style={{padding:"5px"}}>
+                linkedin
+              </a> 
+          ||
+              <a href={`https://ipfs.io/ipfs/QmerukptQGsMC73TbJtusc73Njixbh44i88AVkpF6vtC4F?filename=DanielG_d0423.pdf`}  target="_blank" style={{padding:"5px"}}>
+                resume
+              </a> 
+          ||
+             <a href={`https://twitter.com/danielles0xG`}  target="_blank" rel="noreferrer" style={{padding:"5px"}}>
+              twitter
+             </a>        
+        </p>
+
+        <br></br>
         <ul className="w-full">
           {posts.map((post) => (
             <li
