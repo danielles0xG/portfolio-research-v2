@@ -2,11 +2,12 @@
 title: CTF - Puppet V3 Solution
 description: My solution to Damn Vulnerable DeFi CTF on Uniswapv3 TWAP oracles.
 ---
-My solution for the challenge Puppet V3 & understanding **Uniswap V3** prices on a time weight average.
+
+Understanding **Uniswap V3** prices on a time weight average.
 
 **First, lets discuss the key points to understand how to break this challenge:**
 
-This challenge introduced Uniswap v3 prices calculation and how it now tracks prices at the end of a block. This removes the possibility of in-block price manipulations, (flashloan attacks) ;). And it does this by tracking observations, basically the last price event info.
+This challenge introduced Uniswap v3 prices calculation and how it now tracks prices at the end of a block. This removes the possibility of in-block price manipulations, (flashloan attacks. And it does this by tracking observations, basically the last price event information.
 
 Reference::[Uniswap v3 book](https://uniswapv3book.com/)
 
@@ -23,7 +24,7 @@ Note: this challenge was a nice opportunity to contribute to the [Foundry versio
 [Challenge link...](https://www.damnvulnerabledefi.xyz/challenges/puppet-v3/)
 
 
-**Now Let's take at the victim contract**
+**Now Let's take a look at the victim contract**
 We have a pool where users can borrow its Token in exchange for providing 3 times WETH, the pool uses uniswapV3 TWA to fetch and calculate the token price with respect to eth based on the last observation.
 `````
 pragma solidity =0.7.6;
@@ -94,8 +95,8 @@ contract PuppetV3Pool {
 
 **Attack Brainstorm**
 
-- Right away I saw the pragma version and think on overflow/underflow anything, but not so fast Tincho has protected well even its numbers down-casting with the last function of the contract.
-- The borrow function seems simple and updates correctly before transfer out, so I won't spend much time trying to game this one.
+- Borrow any asset for the 3 times its amount of WETH.
+- The borrow function internal accounting updates after deposit, check effects.
 - I see the hardcoded **TWA time 10** and seems suspicious to me, docs: `Number of seconds in the past to start calculating the time-weighted observation`
 - Then the required eth calculation function is using the oracle, if we can someway get the oracle to return a very cheap price, the ETH can drain easily.
     - So we take a look at user inputs for these one and maybe the passing `type(uint256).max` can reset the price to zero. But the oracle will revert on underflow, so not here... :(
